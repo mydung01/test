@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chào em!</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    .btn {
+      position: relative;
+      font-size: 1.2em;
+      margin: 20px;
+      padding: 12px 25px;
+      background-color: white;
+      color: #444;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn:hover {
+      background-color: #ff4081;
+      color: white;
+    }
+    #button-container {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Em có đang vui không? 🎉</h1>
+  <div id="button-container">
+    <button class="btn" onclick="alert('Chị/em biết ngay mà 😄')">Có</button>
+    <button class="btn" id="btn-khong">Không</button>
+    <button class="btn" id="btn-vui">Rất vui!</button>
+  </div>
+
+  <script>
+    function randomPosition(btn) {
+      const container = document.getElementById('button-container');
+      const maxX = container.offsetWidth - btn.offsetWidth;
+      const maxY = container.offsetHeight - btn.offsetHeight;
+      const randX = Math.random() * maxX;
+      const randY = Math.random() * maxY;
+      btn.style.position = 'absolute';
+      btn.style.left = randX + 'px';
+      btn.style.top = randY + 'px';
+    }
+
+    const btnKhong = document.getElementById('btn-khong');
+    const btnVui = document.getElementById('btn-vui');
+
+    btnKhong.addEventListener('mouseover', () => randomPosition(btnKhong));
+    btnVui.addEventListener('mouseover', () => randomPosition(btnVui));
+  </script>
+
+</body>
+</html>
